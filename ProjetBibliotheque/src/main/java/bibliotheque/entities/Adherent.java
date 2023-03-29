@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import bibliotheque.entities.Emprunt;
 import bibliotheque.entities.Utilisateur;
 
 @Entity
@@ -25,6 +26,7 @@ public class Adherent extends Utilisateur{
 	@Transient
 	@OneToMany(mappedBy = "adherent")
 	private List<Emprunt> emprunts;
+	
 	@Transient
 	@OneToMany(mappedBy = "adherent")
 	private List<Livre> favoris;
