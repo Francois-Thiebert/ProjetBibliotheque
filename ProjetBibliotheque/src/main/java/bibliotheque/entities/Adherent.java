@@ -14,8 +14,8 @@ import bibliotheque.entities.Utilisateur;
 @Entity
 @Table(name="adherent")
 @AttributeOverride(name = "id", column = @Column(name="adherent_id"))
-@AttributeOverride(name = "username", column = @Column(name="adherent_username", nullable=false))
-@AttributeOverride(name = "password", column = @Column(name="adherent_password", nullable=false))
+@AttributeOverride(name = "nomutilisateur", column = @Column(name="adherent_nomutilisateur", nullable=false))
+@AttributeOverride(name = "motdepasse", column = @Column(name="adherent_motdepasse", nullable=false))
 public class Adherent extends Utilisateur{
 	@Column(name="nom")
 	private String nom;
@@ -28,6 +28,10 @@ public class Adherent extends Utilisateur{
 	@Transient
 	@OneToMany(mappedBy = "adherent")
 	private List<Livre> favoris;
+	
+	@Transient
+	@OneToMany(mappedBy = "adherent")
+	private List<Avis> listeAvis;
 	
 	
 	public Adherent() {

@@ -12,38 +12,38 @@ public abstract class Utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String username;
-	private String password;
+	private String nomUtilisateur;
+	private String motDePasse;
 	
 	public Utilisateur() {
 		
 	}
 	
-	public Utilisateur(String username, String password) {
+	public Utilisateur(String nomUtilisateur, String motDePasse) {
 		super();
-		this.username = username;
-		this.password = password;
+		this.nomUtilisateur = nomUtilisateur;
+		this.motDePasse = motDePasse;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getMotDePasse() {
+		return motDePasse;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, password, username);
+		return Objects.hash(id, motDePasse, nomUtilisateur);
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public abstract class Utilisateur {
 		if (getClass() != obj.getClass())
 			return false;
 		Utilisateur other = (Utilisateur) obj;
-		return Objects.equals(id, other.id) && Objects.equals(password, other.password)
-				&& Objects.equals(username, other.username);
+		return Objects.equals(id, other.id) && Objects.equals(motDePasse, other.motDePasse)
+				&& Objects.equals(nomUtilisateur, other.nomUtilisateur);
 	}
 	
 	
