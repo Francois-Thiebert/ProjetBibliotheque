@@ -1,5 +1,6 @@
 package bibliotheque.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -29,7 +30,7 @@ public class Livre {
 			name = "etiquette_livre",
 			joinColumns = @JoinColumn(name  ="livre_id"),
 			inverseJoinColumns = @JoinColumn(name = "etiquette_id"))
-	Set<Etiquette> EtiquettesLivre;
+	Set<Etiquette> etiquettes = new HashSet();
 	
 	
 	

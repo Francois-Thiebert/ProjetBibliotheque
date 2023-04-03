@@ -1,25 +1,29 @@
 package bibliotheque.entities;
 
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@Table(name = "etiquette")
+@Entity
 public class Etiquette {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int etiquetteId;
 	@Transient
 	private String nom;
-	@Transient
-	Etiquette parent;
-	@ManyToMany(mappedBy = "EtiquettesLivre")
-	Set<Etiquette> enfants;
+	
+	@ManyToMany(mappedBy = "etiquettes")
+	private Set<Livre> livres = new HashSet();
 	
 	public int getEtiquetteId() {
 		return etiquetteId;
@@ -32,18 +36,6 @@ public class Etiquette {
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-	public Etiquette getParent() {
-		return parent;
-	}
-	public void setParent(Etiquette parent) {
-		this.parent = parent;
-	}
-	public Set<Etiquette> getEnfants() {
-		return enfants;
-	}
-	public void setEnfants(Set<Etiquette> enfants) {
-		this.enfants = enfants;
 	}
 	
 	@Override
