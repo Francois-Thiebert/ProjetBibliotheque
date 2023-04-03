@@ -34,13 +34,15 @@ public class Emprunt {
 	public Emprunt() {
 		super();
 	}
-
-	public Emprunt(LocalDate dateDebut, LocalDate dateFin, Utilisateur emprunteur) {
+	public Emprunt(LocalDate dateDebut, LocalDate dateFin, Adherent emprunteur, Livre livre) {
 		super();
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
 		this.emprunteur = emprunteur;
+		this.livre = livre;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -66,14 +68,12 @@ public class Emprunt {
 		this.dateFin = dateFin;
 	}
 
-	public Utilisateur getEmprunteur() {
+	public Adherent getEmprunteur() {
 		return emprunteur;
 	}
-
-	public void setEmprunteur(Utilisateur emprunteur) {
+	public void setEmprunteur(Adherent emprunteur) {
 		this.emprunteur = emprunteur;
 	}
-
 	public Livre getLivre() {
 		return livre;
 	}
