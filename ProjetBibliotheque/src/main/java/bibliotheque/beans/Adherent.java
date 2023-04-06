@@ -1,23 +1,31 @@
-package bibliotheque.entities;
+package bibliotheque.beans;
 
 import java.util.List;
 
-import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import bibliotheque.entities.Emprunt;
-import bibliotheque.entities.Utilisateur;
+import org.springframework.stereotype.Component;
 
-@Entity
+import bibliotheque.entities.Avis;
+import bibliotheque.entities.Emprunt;
+import bibliotheque.entities.Livre;
+
+@Component
 @Table(name="adherent")
-@AttributeOverride(name = "id", column = @Column(name="adherent_id"))
-@AttributeOverride(name = "nomutilisateur", column = @Column(name="adherent_nomutilisateur", nullable=false))
-@AttributeOverride(name = "motdepasse", column = @Column(name="adherent_motdepasse", nullable=false))
-public class Adherent extends Utilisateur{
+public class Adherent implements Utilisateur{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(name="nomUtilisateur")
+	private String nomUtilisateur;
+	@Column(name="motDePasse")
+	private String motDePasse;
 	@Column(name="nom")
 	private String nom;
 	@Column(name="prenom")
@@ -36,10 +44,57 @@ public class Adherent extends Utilisateur{
 	private List<Avis> listeAvis;
 	
 	
-	public Adherent() {
-		
+	public Adherent() {		
 	}
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
+	}
+
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
+
+	public void setEmprunts(List<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
+
+	public List<Livre> getFavoris() {
+		return favoris;
+	}
+
+	public void setFavoris(List<Livre> favoris) {
+		this.favoris = favoris;
+	}
+
+	public List<Avis> getListeAvis() {
+		return listeAvis;
+	}
+
+	public void setListeAvis(List<Avis> listeAvis) {
+		this.listeAvis = listeAvis;
+	}
+
 	public Adherent(String nom, String prenom) {
 		super();
 		this.nom = nom;
@@ -60,6 +115,11 @@ public class Adherent extends Utilisateur{
 
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
+	}
+
+	@Override
+	public void seConnecter() {
+		System.out.println("L'adhérent se connecte.");
 	}
 	
 	

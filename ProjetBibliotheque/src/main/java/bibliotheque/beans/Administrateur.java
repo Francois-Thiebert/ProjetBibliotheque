@@ -1,25 +1,64 @@
-package bibliotheque.entities;
+package bibliotheque.beans;
 
-import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+import org.springframework.stereotype.Component;
+
+@Component
 @Table(name="adherent")
-@AttributeOverride(name = "id", column = @Column(name="adherent_id"))
-@AttributeOverride(name = "nomutilisateur", column = @Column(name="adherent_nomutilisateur", nullable=false))
-@AttributeOverride(name = "motdepasse", column = @Column(name="adherent_motdepasse", nullable=false))
-public class Administrateur extends Utilisateur{
+public class Administrateur implements Utilisateur{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(name="nomUtilisateur")
+	private String nomUtilisateur;
+	@Column(name="motDePasse")
+	private String motDePasse;
 	@Column(name="mail")
 	private String mail;
 	
 	
-	public Administrateur() {
-		
+	public Administrateur() {		
 	}
 	
-	public Administrateur(String mail) {
-		this.mail=mail;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNomUtilisateur() {
+		return nomUtilisateur;
+	}
+
+	public void setNomUtilisateur(String nomUtilisateur) {
+		this.nomUtilisateur = nomUtilisateur;
+	}
+
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	@Override
+	public void seConnecter() {
+		System.out.println("L'administrateur se connecte.");
 	}
 }
