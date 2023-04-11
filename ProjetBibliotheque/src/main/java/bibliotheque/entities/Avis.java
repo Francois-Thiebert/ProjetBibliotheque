@@ -1,5 +1,6 @@
 package bibliotheque.entities;
 
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -81,7 +82,7 @@ public class Avis implements Serializable {
 		this.livre = livre;
 	}
 
-	@Override
+	
 	public int getNote() {
 		return note;
 	}
@@ -98,4 +99,6 @@ public class Avis implements Serializable {
 	
 	
 	
+
+
 }
