@@ -17,30 +17,48 @@ import javax.persistence.Transient;
 @Entity
 public class Etiquette {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int etiquetteId;
-	@Transient
 	private String nom;
-	
+	@Transient
+	private Etiquette parent;
+	@Transient
+	private Etiquette cadet;
 	@ManyToMany(mappedBy = "etiquettes")
 	private Set<Livre> livres = new HashSet();
 	
-	public int getEtiquetteId() {
-		return etiquetteId;
+	
+	
+	
+	public Etiquette() {
+		super();
 	}
-	public void setEtiquetteId(int etiquetteId) {
-		this.etiquetteId = etiquetteId;
-	}
+	
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
+	public Etiquette getParent() {
+		return parent;
+	}
+	public void setParent(Etiquette parent) {
+		this.parent = parent;
+	}
+	public Etiquette getCadet() {
+		return cadet;
+	}
+	public void setCadet(Etiquette cadet) {
+		this.cadet = cadet;
+	}
+	public Set<Livre> getLivres() {
+		return livres;
+	}
+	public void setLivres(Set<Livre> livres) {
+		this.livres = livres;
+	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(etiquetteId);
+		return Objects.hash(nom);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -51,7 +69,7 @@ public class Etiquette {
 		if (getClass() != obj.getClass())
 			return false;
 		Etiquette other = (Etiquette) obj;
-		return etiquetteId == other.etiquetteId;
+		return nom == other.nom;
 	}
 	
 	

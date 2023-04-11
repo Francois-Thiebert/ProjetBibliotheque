@@ -31,6 +31,47 @@ public class Livre {
 			joinColumns = @JoinColumn(name  ="livre_id"),
 			inverseJoinColumns = @JoinColumn(name = "etiquette_id"))
 	Set<Etiquette> etiquettes = new HashSet();
+
+	public Livre() {
+		super();
+	}
+	
+	public Livre(int livreId, String titre, StatutLivre statut) {
+		super();
+		this.livreId = livreId;
+		this.titre = titre;
+		this.statut = statut;
+	}
+	
+	public Livre(String titre, StatutLivre statut) {
+		super();
+		this.titre = titre;
+		this.statut = statut;
+	}
+
+	public int getLivreId() {
+		return livreId;
+	}
+
+	public void setLivreId(int livreId) {
+		this.livreId = livreId;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public StatutLivre getStatut() {
+		return statut;
+	}
+
+	public void setStatut(StatutLivre statut) {
+		this.statut = statut;
+	}
 	
 	
 	
