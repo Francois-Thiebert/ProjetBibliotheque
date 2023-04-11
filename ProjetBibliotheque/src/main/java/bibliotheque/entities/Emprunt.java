@@ -13,9 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import bibliotheque.beans.Adherent;
-import bibliotheque.beans.Utilisateur;
-
 @Entity
 @Table (name="emprunt")
 public class Emprunt {

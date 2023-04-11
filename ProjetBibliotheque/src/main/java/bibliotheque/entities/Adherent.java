@@ -1,4 +1,4 @@
-package bibliotheque.beans;
+package bibliotheque.entities;
 
 import java.util.List;
 
@@ -11,10 +11,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
-
-import bibliotheque.entities.Avis;
-import bibliotheque.entities.Emprunt;
-import bibliotheque.entities.Livre;
 
 @Component
 @Table(name="adherent")

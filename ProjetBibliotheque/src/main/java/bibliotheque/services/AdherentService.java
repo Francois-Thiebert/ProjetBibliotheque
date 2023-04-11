@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import bibliotheque.beans.Adherent;
+import bibliotheque.entities.Adherent;
 import bibliotheque.exceptions.AdherentException;
 import bibliotheque.repositories.AdherentRepository;
 // import bibliotheque.repositories.LivreRepository;

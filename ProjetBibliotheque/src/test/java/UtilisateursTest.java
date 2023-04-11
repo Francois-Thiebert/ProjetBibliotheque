@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import bibliotheque.beans.Adherent;
 import bibliotheque.config.SpringConfig;
+import bibliotheque.entities.Adherent;
 import bibliotheque.services.AdherentService;
 
 @SpringJUnitConfig(SpringConfig.class)

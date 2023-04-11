@@ -1,4 +1,4 @@
-package bibliotheque.beans;
+package bibliotheque.entities;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

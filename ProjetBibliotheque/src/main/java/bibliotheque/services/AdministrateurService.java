@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import bibliotheque.beans.Administrateur;
+import bibliotheque.entities.Administrateur;
 import bibliotheque.exceptions.AdministrateurException;
 import bibliotheque.repositories.AdministrateurRepository;
 
