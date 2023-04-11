@@ -50,7 +50,7 @@ public class SpringConfig {
 		emf.setPackagesToScan("bibliotheque.entities");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "validate"); // à passer en create si les tables ne sont pas créées
+		properties.setProperty("hibernate.hbm2ddl.auto", "create"); // à passer en create si les tables ne sont pas créées
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "true");
