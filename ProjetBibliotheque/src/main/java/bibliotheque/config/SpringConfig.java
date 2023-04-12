@@ -19,16 +19,17 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan({"bibliotheque.beans"})
 @EnableTransactionManagement
-@PropertySource("classpath:datasource.properties") // à faire proprement !
+@ComponentScan("bibliotheque.services")
+@PropertySource("classpath:data-source.properties")
 @EnableJpaRepositories(basePackages = "bibliotheque.repositories")
 public class SpringConfig {
-
+	
 	@Autowired
 	private Environment env;
 	
 	// DataSource=>base de donnée
+	//TODO rajouter le fichier data-source.properties !!!!!!
 	@Bean
 	public BasicDataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -39,17 +40,17 @@ public class SpringConfig {
 		dataSource.setMaxTotal(10);
 		return dataSource;
 	}
-
+	
 	// EntityManagerFactory
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(BasicDataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
 		// emplacement des entity
-		emf.setPackagesToScan("bibliotheque.*");
+		emf.setPackagesToScan("bibliotheque.entities");
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "validate");
+		properties.setProperty("hibernate.hbm2ddl.auto", "create"); // à passer en create si les tables ne sont pas créées
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "true");
@@ -69,4 +70,5 @@ public class SpringConfig {
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
+
 }
