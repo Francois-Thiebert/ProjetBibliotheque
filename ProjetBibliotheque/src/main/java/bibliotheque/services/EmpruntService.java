@@ -26,9 +26,9 @@ public class EmpruntService {
 		return empruntRepo.findByLivre(livre);
 	}
 	
-	public List<Emprunt> getByDateFinDepassee() {
-		return empruntRepo.findByDateFinDepassee();
-	}
+//	public List<Emprunt> getByDateFinDepassee() {
+//		return empruntRepo.findByDateFinDepassee();
+//	}
 	
 	public List<Emprunt> getByEmprunteur(Adherent emprunteur) {
 		if (emprunteur == null) {
@@ -37,12 +37,12 @@ public class EmpruntService {
 		return empruntRepo.findByEmprunteur(emprunteur);
 	}
 	
-	public List<Emprunt> getByArchive(LocalDate date) {
-		if (date == null) {
-			throw new EmpruntException("date obligatoire");
-		}
-		return empruntRepo.findByArchive(date);
-	}
+//	public List<Emprunt> getByArchive(LocalDate date) {
+//		if (date == null) {
+//			throw new EmpruntException("date obligatoire");
+//		}
+//		return empruntRepo.findByArchive(date);
+//	}
 	
 	public List<Emprunt> getByRendu(boolean rendu){
 		return empruntRepo.findByRendu(rendu);

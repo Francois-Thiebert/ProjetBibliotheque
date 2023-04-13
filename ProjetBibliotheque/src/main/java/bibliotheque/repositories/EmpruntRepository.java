@@ -21,11 +21,11 @@ public interface EmpruntRepository extends JpaRepository<Emprunt, Long> {
 	
 	List<Emprunt> findByLivre (Livre livre);
 	
-	@Query("select e from Emprunt e where e.date_fin_emprunt<=SYSDATE and e.rendu=false")
-	List<Emprunt> findByDateFinDepassee();
+//	@Query("select e from Emprunt e where e.date_fin_emprunt<=SYSDATE and e.rendu=false")
+//	List<Emprunt> findByDateFinDepassee();
 	
-	@Query("select e from Emprunt e where e.date_fin_emprunt=:date and e.rendu=true")
-	List<Emprunt> findByArchive(@Param("date") LocalDate date);
+//	@Query("select e from Emprunt e where e.date_fin_emprunt=:date and e.rendu=true")
+//	List<Emprunt> findByArchive(@Param("date") LocalDate date);
 	
 	List<Emprunt> findByRendu (boolean rendu);
 	
