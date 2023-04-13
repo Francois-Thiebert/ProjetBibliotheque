@@ -10,9 +10,9 @@ import bibliotheque.entities.Administrateur;
 
 
 public interface AdministrateurRepository extends JpaRepository<Administrateur, Long>{
-	@Query("select a from Administrateur a.id=:id")
+	@Query("select f from Administrateur f where f.id=:id")
 	Optional<Administrateur> findById(@Param("id") Long id);
 	
-	@Query("select a from Administrateur a.nomUtilisateur=:nomUtilisateur")
+	@Query("select f from Administrateur f where f.nomUtilisateur=:nomUtilisateur")
 	Optional<Administrateur> findByNomUtilisateur(@Param("nomUtilisateur") String nomUtilisateur);
 }

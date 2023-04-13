@@ -10,10 +10,10 @@ import bibliotheque.entities.Adherent;
 
 
 public interface AdherentRepository extends JpaRepository<Adherent, Long>{
-	@Query("select a from Adherent a.id=:id")
+	@Query("select f from Adherent f where f.id=:id")
 	Optional<Adherent> findById(@Param("id") Long id);
 	
-	@Query("select a from Adherent a.nomUtilisateur=:nomUtilisateur")
+	@Query("select f from Adherent f where f.nomUtilisateur=:nomUtilisateur")
 	Optional<Adherent> findByNomUtilisateur(@Param("nomUtilisateur") String nomUtilisateur);
 }
 

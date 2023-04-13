@@ -24,6 +24,13 @@ public class Administrateur implements Utilisateur{
 	public Administrateur() {		
 	}
 	
+	public Administrateur(String nomUtilisateur, String motDePasse, String mail) {
+		super();
+		this.nomUtilisateur = nomUtilisateur;
+		this.motDePasse = motDePasse;
+		this.mail = mail;
+	}
+	
 	public Long getId() {
 		return id;
 	}
