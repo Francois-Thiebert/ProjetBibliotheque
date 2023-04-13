@@ -89,8 +89,10 @@ public class Adherent implements Utilisateur{
 		this.listeAvis = listeAvis;
 	}
 
-	public Adherent(String nom, String prenom) {
+	public Adherent(String nomUtilisateur, String motDePasse, String nom, String prenom) {
 		super();
+		this.nomUtilisateur = nomUtilisateur;
+		this.motDePasse = motDePasse;
 		this.nom = nom;
 		this.prenom = prenom;
 	}

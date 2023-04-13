@@ -24,7 +24,7 @@ public class Emprunt {
 	private LocalDate dateDebut;
 	@Column (name="date_fin_emprunt")
 	private LocalDate dateFin;
-	@Column (name="status_emprunt")
+	@Column (name="rendu")
 	private boolean rendu;
 	@ManyToOne
 	@JoinColumn(name="id_emprunteur_emprunt", foreignKey = @ForeignKey(name="id_emprunteur_emprunt_fk"))
