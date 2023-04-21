@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import bibliotheque.entities.Adherent;
 import bibliotheque.exceptions.AdherentException;
+import bibliotheque.exceptions.AdministrateurException;
 import bibliotheque.repositories.AdherentRepository;
 // import bibliotheque.repositories.LivreRepository;
 
@@ -44,11 +45,11 @@ public class AdherentService {
 	}
 
 	public void createOrUpdate(Adherent adherent) {
-		if (adherent.getNomUtilisateur() == null || adherent.getNomUtilisateur().isBlank()) {
+		if (adherent.getNom() == null || adherent.getNom().isBlank()) {
 			throw new AdherentException("nom d'utilisateur obligatoire");
 		}
-		if (adherent.getMotDePasse() == null || adherent.getMotDePasse().isBlank()) {
-			throw new AdherentException("mot de passe obligatoire");
+		if (adherent.getPrenom() == null || adherent.getPrenom().isBlank()) {
+			throw new AdministrateurException("mot de passe obligatoire");
 		}
 		adherentRepo.save(adherent);
 	}

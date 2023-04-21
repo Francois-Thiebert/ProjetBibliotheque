@@ -38,10 +38,10 @@ public class AdministrateurService {
 	}
 
 	public void createOrUpdate(Administrateur adherent) {
-		if (adherent.getNomUtilisateur() == null || adherent.getNomUtilisateur().isBlank()) {
+		if (adherent.getNom() == null || adherent.getNom().isBlank()) {
 			throw new AdministrateurException("nom d'utilisateur obligatoire");
 		}
-		if (adherent.getMotDePasse() == null || adherent.getMotDePasse().isBlank()) {
+		if (adherent.getPrenom() == null || adherent.getPrenom().isBlank()) {
 			throw new AdministrateurException("mot de passe obligatoire");
 		}
 		administrateurRepo.save(adherent);

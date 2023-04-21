@@ -20,9 +20,13 @@ public class UtilisateursTest {
 	@Test
 	@Commit
 	void insertTest() {
-		Adherent adherent = new Adherent("testLogin","testPassword");
+		Adherent adherent = new Adherent("testLogin", "testPassword");
+		adherent.setNom("truc");
+
+		System.out.println(adherent.getNom());
+
 		adherentService.createOrUpdate(adherent);
-		System.out.println(adherent.getNomUtilisateur());
+		System.out.println(adherent.getNom());
 		assertNotNull(adherent.getId());
 	}
 	
