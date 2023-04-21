@@ -2,21 +2,21 @@ package bibliotheque.entities;
 
 import java.util.List;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
+@Table(name="adherent")
+@AttributeOverride(name = "id", column = @Column(name = "adherent_id"))
+@AttributeOverride(name = "nom", column = @Column(name = "adherent_nom"))
+@AttributeOverride(name = "prenom", column = @Column(name = "adherent_prenom"))
+@AttributeOverride(name = "login", column = @Column(name = "adherent_login"))
+@AttributeOverride(name = "password", column = @Column(name = "adherent_password"))
+@AttributeOverride(name = "role", column = @Column(name = "role"))
 public class Adherent extends Utilisateur{
-	
-	@Column(name = "test")
-	private String test_adherent = "test";
-	
-	
 	@Transient
 	//@OneToMany(mappedBy = "adherent")
 	private List<Emprunt> emprunts;
@@ -30,11 +30,8 @@ public class Adherent extends Utilisateur{
 	private List<Avis> listeAvis;
 	
 	
-	public Adherent() {
-		
+	public Adherent() {		
 	}
-	
-	
 
 	public List<Emprunt> getEmprunts() {
 		return emprunts;
@@ -62,5 +59,6 @@ public class Adherent extends Utilisateur{
 
 	public Adherent(String nom, String prenom) {
 		super(nom, prenom);
-	}	
+	}
+	
 }
