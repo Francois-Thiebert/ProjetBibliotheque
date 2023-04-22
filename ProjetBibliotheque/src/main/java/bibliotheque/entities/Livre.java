@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,7 +31,14 @@ public class Livre {
 			name = "etiquette_livre",
 			joinColumns = @JoinColumn(name  ="livre_id"),
 			inverseJoinColumns = @JoinColumn(name = "etiquette_id"))
-	Set<Etiquette> etiquettes = new HashSet();
+	Set<Etiquette> etiquettes = new HashSet<Etiquette>();
+	
+	@OneToMany(mappedBy = "livre")
+	Set<Emprunt> emprunts = new HashSet<Emprunt>();
+	
+//	@ManyToOne
+//	@JoinColumn(name="id_livre_emprunt", foreignKey = @ForeignKey(name="id_livre_emprunt_fk"))
+//	private Livre livre;
 	
 	//relation favori
 	//relation avis
