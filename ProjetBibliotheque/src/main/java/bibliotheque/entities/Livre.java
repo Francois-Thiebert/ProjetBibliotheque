@@ -31,6 +31,11 @@ public class Livre {
 			joinColumns = @JoinColumn(name  ="livre_id"),
 			inverseJoinColumns = @JoinColumn(name = "etiquette_id"))
 	Set<Etiquette> etiquettes = new HashSet();
+	
+	//relation favori
+	//relation avis
+	//relation emprunt
+		
 
 	public Livre() {
 		super();
@@ -75,9 +80,6 @@ public class Livre {
 	
 	
 	
-	//relation favori
-	//relation avis
-	//relation emprunt
 	
 	
 	
