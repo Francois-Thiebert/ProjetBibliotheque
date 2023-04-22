@@ -28,6 +28,11 @@ public class Administrateur extends Utilisateur{
 		this.setRole(Role.ROLE_ADMIN);
 	}
 	
+	public Administrateur(String nom, String prenom, String login, String password, String adresse) {
+		this(nom, prenom, login, password);
+		this.mail = adresse;
+	}
+	
 
 	public String getMail() {
 		return mail;
