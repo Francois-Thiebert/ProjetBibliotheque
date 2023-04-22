@@ -3,11 +3,13 @@ package bibliotheque.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import bibliotheque.entities.Administrateur;
 import bibliotheque.exceptions.AdministrateurException;
 import bibliotheque.repositories.AdministrateurRepository;
 
+@Service
 public class AdministrateurService {
 	@Autowired
 	private AdministrateurRepository administrateurRepo;
@@ -42,6 +44,12 @@ public class AdministrateurService {
 			throw new AdministrateurException("nom d'utilisateur obligatoire");
 		}
 		if (adherent.getPrenom() == null || adherent.getPrenom().isBlank()) {
+			throw new AdministrateurException("mot de passe obligatoire");
+		}
+		if (adherent.getLogin() == null || adherent.getLogin().isBlank()) {
+			throw new AdministrateurException("login obligatoire");
+		}
+		if (adherent.getPassword() == null || adherent.getPassword().isBlank()) {
 			throw new AdministrateurException("mot de passe obligatoire");
 		}
 		administrateurRepo.save(adherent);

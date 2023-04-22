@@ -20,7 +20,12 @@ public class Administrateur extends Utilisateur{
 	
 	
 	public Administrateur() {
-		
+		super();
+	}
+	
+	public Administrateur(String nom, String prenom, String login, String password) {
+		super(nom, prenom, login, password);
+		this.setRole(Role.ROLE_ADMIN);
 	}
 	
 

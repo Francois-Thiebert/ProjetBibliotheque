@@ -56,6 +56,14 @@ public class Utilisateur {
 		this.role = null;
 	}
 	
+	public Utilisateur(String nom, String prenom, String login, String password) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.login = login;
+		this.password = password;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +88,27 @@ public class Utilisateur {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public void imprimerUtilisateur() {
+		System.out.println("nom :\t" + this.nom +
+				"prénom :\t" + this.prenom +
+				"login :\t" + this.login +
+				"mdp :\t" + this.password +
+				"role :\t" + this.role);
+	}
+	
 	
 	
 	
